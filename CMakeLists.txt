@@ -115,6 +115,7 @@ endfunction()
 
 add_definition(ZENOH_C_STANDARD=${CMAKE_C_STANDARD})
 
+
 # while in development, use timestamp for patch version:
 string(TIMESTAMP PROJECT_VERSION_PATCH "%Y%m%ddev")
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH}")
@@ -186,6 +187,7 @@ set(Z_FEATURE_QUERY 1 CACHE STRING "Toggle query feature")
 set(Z_FEATURE_QUERYABLE 1 CACHE STRING "Toggle queryable feature")
 set(Z_FEATURE_RAWETH_TRANSPORT 0 CACHE STRING "Toggle raw ethernet transport feature")
 set(Z_FEATURE_INTEREST 0 CACHE STRING "Toggle interest feature") # Toggle to 1 when protocol changes are merged
+set(Z_USE_ATOMIC_FALLBACK 0 CACHE STRING "Use atomic fallback if <atomic> is not provided by your implementation.") # Toggle to 1 when protocol changes are merged
 add_definition(Z_FEATURE_MULTI_THREAD=${Z_FEATURE_MULTI_THREAD})
 add_definition(Z_FEATURE_PUBLICATION=${Z_FEATURE_PUBLICATION})
 add_definition(Z_FEATURE_SUBSCRIPTION=${Z_FEATURE_SUBSCRIPTION})
@@ -193,6 +195,7 @@ add_definition(Z_FEATURE_QUERY=${Z_FEATURE_QUERY})
 add_definition(Z_FEATURE_QUERYABLE=${Z_FEATURE_QUERYABLE})
 add_definition(Z_FEATURE_RAWETH_TRANSPORT=${Z_FEATURE_RAWETH_TRANSPORT})
 add_definition(Z_FEATURE_INTEREST=${Z_FEATURE_INTEREST})
+add_definition(Z_USE_ATOMIC_FALLBACK=${Z_USE_ATOMIC_FALLBACK})
 add_compile_definitions("Z_BUILD_DEBUG=$<CONFIG:Debug>")
 message(STATUS "Building with feature confing:\n\
 * MULTI-THREAD: ${Z_FEATURE_MULTI_THREAD}\n\
